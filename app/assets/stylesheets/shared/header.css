@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+}
+
+.header-top {
+  background-color: #A9A9A9;
+  padding: 20px 40px;
+}
+
+.nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav a {
+  text-decoration: none;
+}
+
+.nav_right {
+  width: 200p
+}
+
+.user-nav {
+  width: 100%;
+}
+
+.nav_btn {
+  margin-left: 20px;
+}
