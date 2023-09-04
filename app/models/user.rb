@@ -8,6 +8,6 @@ class User < ApplicationRecord
 
   with_options presence: true do
     validates :username
-    validates :password, format: {with: PASSWORD_REGEX, message: 'が無効です。文字と数字の両方を含めてください'}
+    validates :password, format: {with: PASSWORD_REGEX, message: 'is invalid'}
   end
 end
