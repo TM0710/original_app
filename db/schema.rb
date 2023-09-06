@@ -10,14 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_03_234902) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_06_060741) do
   create_table "posts", charset: "utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "room_users", charset: "utf8", force: :cascade do |t|
+    t.bigint "room_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_room_users_on_room_id"
+    t.index ["user_id"], name: "index_room_users_on_user_id"
+  end
+
+  create_table "rooms", charset: "utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "room_path", null: false
+    t.integer "host_id", null: false
+    t.date "wedding_day", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_path"], name: "index_rooms_on_room_path", unique: true
+  end
+
   create_table "users", charset: "utf8", force: :cascade do |t|
-    t.string "username", null: false
+    t.string "name", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -29,4 +48,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_03_234902) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "room_users", "rooms"
+  add_foreign_key "room_users", "users"
 end
