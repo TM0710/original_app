@@ -11,6 +11,7 @@
           <%= link_to room.name, room_posts_path(room) %>
         </div>
         <% if room.host_id == current_user.id %>
+          <img src="<%= asset_path('IMG_1217.jpeg') %>" class="img-thumbnail" alt="...">
           <%= link_to 'ルーム削除', room_path(room), data: { turbo_method: :delete } %>
         <% end %>
       </div>
