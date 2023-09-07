@@ -1,6 +1,6 @@
 <%= render "shared/second-header"%>
 
-<%= form_with model: [@room, @post], local: true, class: 'registration-main' do |f| %>
+<%= form_with model: [@room, @post], id: 'new_post', local: true, class: 'registration-main' do |f| %>
 
 <div class='form-wrap'>  
   <div class='form-header'>
@@ -17,6 +17,8 @@
     </div>
     <%= f.file_field :image, class:"input-default", id:'post-image' %>
   </div>
+
+   <div id="previews"></div>
 
   <div class="login-btn">
   <%= button_tag(type: 'submit', class: 'btn btn-secondary login-red-btn') do %>
