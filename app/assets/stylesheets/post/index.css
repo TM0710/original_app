@@ -1,0 +1,8 @@
+.post-main {
+  width: 100vw;
+}
+
+.posts {
+  display: flex;
+  flex-wrap: wrap;
+}

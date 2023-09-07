@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_room, only: [:index, :new, :create]
-
+  before_action :authenticate_user!, except: :index
   def index
     @posts = @room.posts.includes(:user)
   end
@@ -10,7 +10,6 @@ class PostsController < ApplicationController
   end
   
   def create
-    binding.pry
     @post = @room.posts.new(post_params)
     if @post.save
       redirect_to room_posts_path(@room)
