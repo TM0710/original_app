@@ -1,5 +1,9 @@
 <%= render "shared/header" %>
-<div>
-<%= @room.name %>写真一覧
+<div class="post-main">
+  <%= @room.name %>写真一覧
+  <%# <%= image_tag post.image, class: 'post-image' if post.image.attached? %>
 </div>
+<%= link_to(new_room_post_path, class: 'purchase-btn') do %>
+  <button type="button" class="btn btn-secondary">New Post</button>
+<% end %>
 <%= render "shared/footer" %>
