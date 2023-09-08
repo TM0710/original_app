@@ -1,0 +1,9 @@
+.show-main {
+  display: flex;
+  justify-content: center;
+}
+
+.show_bottom_btn {
+  display: flex;
+  justify-content: space-between;
+}
