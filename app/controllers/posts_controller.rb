@@ -1,15 +1,15 @@
 class PostsController < ApplicationController
-  before_action :set_room, only: [:index, :new, :create, :show,:destroy]
-  before_action :set_post, only: [:show,:destroy]
+  before_action :set_room, only: [:index, :new, :create, :show, :destroy]
+  before_action :set_post, only: [:show, :destroy]
   before_action :authenticate_user!
   def index
-    @posts = @room.posts.includes(:user).order("created_at DESC")
+    @posts = @room.posts.includes(:user).order('created_at DESC')
   end
 
   def new
     @post = Post.new
   end
-  
+
   def create
     @post = @room.posts.new(post_params)
     if @post.save

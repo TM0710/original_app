@@ -42,7 +42,7 @@ RSpec.describe Room, type: :model do
         @room.save
         another_room = FactoryBot.build(:room, host_id: @room.host_id, room_path: @room.room_path)
         another_room.valid?
-        expect(another_room.errors.full_messages).to include("Room path は既に使用されています")
+        expect(another_room.errors.full_messages).to include('Room path は既に使用されています')
       end
     end
   end

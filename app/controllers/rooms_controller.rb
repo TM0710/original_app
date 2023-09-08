@@ -24,14 +24,13 @@ class RoomsController < ApplicationController
     redirect_to root_path
   end
 
-
   def search
     @room = Room.find_by(room_path: params[:room_path])
     if @room
-      unless current_user.rooms.exists?(@room.id)
-        current_user.rooms << @room
+      if current_user.rooms.exists?(@room.id)
         redirect_to room_posts_path(@room)
       else
+        current_user.rooms << @room
         redirect_to room_posts_path(@room)
       end
     else
@@ -40,7 +39,7 @@ class RoomsController < ApplicationController
   end
 
   private
-  
+
   def room_params
     params.require(:room).permit(:name, :room_path, :wedding_day).merge(host_id: current_user.id)
   end

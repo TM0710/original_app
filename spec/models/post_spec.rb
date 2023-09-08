@@ -22,13 +22,13 @@ RSpec.describe Post, type: :model do
       it 'userが紐づいていないと保存できない' do
         @post.user = nil
         @post.valid?
-        expect(@post.errors.full_messages).to include("User must exist")
+        expect(@post.errors.full_messages).to include('User must exist')
       end
 
       it 'roomが紐づいていないと保存できない' do
         @post.room = nil
         @post.valid?
-        expect(@post.errors.full_messages).to include("Room must exist")
+        expect(@post.errors.full_messages).to include('Room must exist')
       end
     end
   end
