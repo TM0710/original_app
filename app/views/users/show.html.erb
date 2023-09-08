@@ -1,0 +1,15 @@
+<%= render "shared/header" %>
+<div class="post-main">
+  <div class="post_header">
+  </div>
+  <div class="posts">
+    <% @posts.each do |post| %>
+      <%= link_to room_post_path(post.room, post) do %>
+        <%= image_tag post.image.variant(resize_to_fill: [300, 300, gravity: 'center']).processed, class: 'img-thumbnail' if post.image.attached? %>
+      <% end %>
+    <% end %>  
+  </div>
+</div>
+
+
+<%# <%= render "shared/footer" %>

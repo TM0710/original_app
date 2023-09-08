@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show,:destroy]
   before_action :authenticate_user!
   def index
-    @posts = @room.posts.includes(:user)
+    @posts = @room.posts.includes(:user).order("created_at DESC")
   end
 
   def new
