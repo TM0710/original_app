@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
-  before_action :set_room, only: [:index, :new, :create]
-  before_action :authenticate_user!, except: :index
+  before_action :set_room, only: [:index, :new, :create, :show,:destroy]
+  before_action :set_post, only: [:show,:destroy]
+  before_action :authenticate_user!
   def index
     @posts = @room.posts.includes(:user)
   end
@@ -18,10 +19,22 @@ class PostsController < ApplicationController
     end
   end
 
+  def show
+  end
+
+  def destroy
+    @post.destroy
+    redirect_to room_posts_path(@room)
+  end
+
   private
 
   def set_room
     @room = Room.find(params[:room_id])
+  end
+
+  def set_post
+    @post = @room.posts.find(params[:id])
   end
 
   def post_params
