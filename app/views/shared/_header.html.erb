@@ -6,7 +6,7 @@
     <div class="nav_right">
       <% if user_signed_in? %>
         <div class="user_nav">
-          <%= link_to current_user.name, "#", class: :nav_btn %>
+          <%= link_to current_user.name, user_path(current_user.id), class: :nav_btn %>
           <%= link_to "NewRoom", new_room_path, class: :nav_btn %>
           <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete }, class: :nav_btn %>
         </div>
