@@ -1,0 +1,29 @@
+<%= render "shared/header" %>
+<div class="room-main">
+  <div class="room-contents">
+  
+
+    <% if user_signed_in? %>
+    <div class="rooms">
+      <% current_user.rooms.each do |room| %>
+      <div class="room-content">
+        <div class="room_btn">
+          <%= link_to room.name, room_posts_path(room) %>
+        </div>
+        <% if room.host_id == current_user.id %>
+          <img src="<%= asset_path('IMG_1217.jpg') %>" class="img-thumbnail" alt="...">
+          <%= link_to 'ルーム削除', room_path(room), data: { turbo_method: :delete } %>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
+    <% end %>
+    <div class="form_room">
+    <%= form_with(url: search_rooms_path, local: true, method: :get, class: "search-form") do |form| %>
+      <%= form.text_field :room_path, placeholder: "roomパスワードを入力", class: "search-input" %>
+      <%= form.submit "参加", class: "search-btn" %>
+    <% end %>
+    </div>
+  </div>
+</div>
+<%= render "shared/footer" %>
