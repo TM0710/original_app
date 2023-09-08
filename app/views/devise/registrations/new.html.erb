@@ -17,6 +17,10 @@
   </svg>
 
   <main class="form-signin w-100 m-auto">
+
+    <div class="header-title">
+      <h1><%= link_to 'OriginalApp', root_path, class: "root-taitle" %></h1>
+    </div>
     <%= form_with model: @user, url: user_registration_path, class: 'registration-main', local: true do |f| %>
     <div class='form-wrap'>
       <div class='form-header'>
