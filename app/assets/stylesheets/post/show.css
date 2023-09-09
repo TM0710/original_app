@@ -7,3 +7,8 @@
   display: flex;
   justify-content: space-between;
 }
+
+.card-header-wrap {
+  display: flex;
+  align-items: flex-start;
+}
