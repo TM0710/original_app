@@ -15,9 +15,7 @@
       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
       <div class="show_bottom_btn">
         <div class="dl_like_btn">
-          <% unless @post.user.id == current_user.id %>
-            <a href="#" class="btn btn-primary">Download</a>
-          <% end %>
+          <a href="#" class="btn btn-primary">Download</a>
         </div>
         <% if @post.user_id == current_user.id %>
           <%= link_to room_post_path(@room, @post), data: { turbo_method: :delete} do %>
