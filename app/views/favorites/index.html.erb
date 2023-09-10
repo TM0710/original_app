@@ -1,0 +1,11 @@
+<div class="post-main">
+  <div class="posts">
+    <% @favorites.each do |favorite| %>
+      <div class="post">
+        <%= link_to room_post_path(favorite.post.room, favorite.post) do %>
+          <%= image_tag favorite.post.image.variant(resize_to_fill: [300, 300, gravity: 'center']).processed, class: 'img-thumbnail' if favorite.post.image.attached? %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
