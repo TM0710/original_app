@@ -2,7 +2,7 @@ class Post < ApplicationRecord
   belongs_to :room
   belongs_to :user
   has_one_attached :image
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
 
   validates :image, presence: true
 

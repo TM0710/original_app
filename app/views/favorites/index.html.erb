@@ -1,11 +1,24 @@
-<div class="post-main">
-  <div class="posts">
-    <% @favorites.each do |favorite| %>
-      <div class="post">
-        <%= link_to room_post_path(favorite.post.room, favorite.post) do %>
-          <%= image_tag favorite.post.image.variant(resize_to_fill: [300, 300, gravity: 'center']).processed, class: 'img-thumbnail' if favorite.post.image.attached? %>
-        <% end %>
-      </div>
-    <% end %>
+<div class="wrapper">
+  <div class="side-bar">
+    <%= render "posts/side-bar" %>
+  </div>
+  <div class="side-space"></div>
+
+  <div class="main-contents">
+    <div class="main-header">
+      <h3 class="title">
+        <%= current_user.name %>さんのお気に入り
+      </h3>
+    </div>
+    <hr>
+    <div class="posts">
+      <% @favorites.each do |favorite| %>
+        <div class="post">
+          <%= link_to room_post_path(favorite.post.room, favorite.post) do %>
+            <%= image_tag favorite.post.image.variant(resize_to_fill: [300, 300, gravity: 'center']).processed, class: 'img-thumbnail' if favorite.post.image.attached? %>
+          <% end %>
+        </div>
+      <% end %>  
+    </div>
   </div>
 </div>
