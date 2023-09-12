@@ -1,9 +1,11 @@
 <div class="side-bar-header">
-  <%= link_to (root_path), class: "title" do %>
-  <h3>OriginalApp</h3>
-  <% end %>
+  <div class="side-bar-header-upper">
+    <%= link_to (root_path), class: "title" do %>
+    <h3>OriginalApp</h3>
+    <% end %>
+  </div>
+  <hr>
 </div>
-<hr>
 <div class="rooms">
   <% if user_signed_in? %>
     <div class="rooom-cintents">

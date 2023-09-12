@@ -18,22 +18,23 @@
 }
 
 .side-bar-header {
-  height: 50px;
   padding: 0 1rem;
 }
 
-.main-header {
-  display: flex;
-  justify-content:space-between;
+
+.side-bar-header-upper {
   height: 50px;
-  padding: 0 1rem;
+}
+
+.side-bar-header-upper h3{
   line-height: 50px;
+  font-size: 24px;
 }
 
 .title {
-  color: #000000;
   line-height: 50px;
-  font-size: 1.5rem;
+  font-size: 24px;
+  color: #000000;
   text-decoration: none;
 }
 
@@ -66,17 +67,31 @@
   height: 100vh;
 }
 
+.main-mobile {
+  width: 100vw;
+  height: calc(100vh - 50px - 50px);
+}
+
+/* PC表示時 */
+@media (min-width: 768px) {
+  .header-mobile {
+    display: none;
+  }
+  .footer-mobile {
+    display: none;
+  }
+}
+
 /* スマホ表示時 */
 @media (max-width: 768px) {
+  .wrapper {
+    display: block;
+  }
   .side-bar {
     display: none;
   }
 
   .side-space {
-    display: none;
-  }
-
-  .main-header {
     display: none;
   }
 }
