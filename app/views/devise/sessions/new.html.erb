@@ -18,14 +18,14 @@
     </svg>
   <main class="form-signin w-100 m-auto">
   <div class="header-title">
-    <h1><%= link_to 'OriginalApp', root_path, class: "root-taitle" %></h1>
+    <h3><%= link_to 'OriginalApp', root_path, class: "root-taitle" %></h3>
   </div>
   <%= form_with model: @user, url: user_session_path, class: 'registration-main' do |f| %>
   <div class='form-wrap'>
     <div class='form-header'>
-      <h1 class='h3 mb-3 fw-normal'>
+      <h4 class='h3 mb-3 fw-normal'>
         Please log in
-      </h1>
+      </h4>
     </div>
     <div class='login-flash-message'>
       <%= flash[:notice] %>

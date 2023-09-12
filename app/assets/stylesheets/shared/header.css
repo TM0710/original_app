@@ -2,28 +2,31 @@
   box-sizing: border-box;
 }
 
-.header-top {
-  background-color: #A9A9A9;
-  padding: 20px 40px;
+.header-mobile {
+  width: 100%;
+  padding: 0 1rem;
+  position: sticky;
+  top: 0;
+  background-color: #FFFFFF;
 }
 
-.nav {
-  width: 100%;
+.header-upper {
+  height:30px;
   display: flex;
   justify-content: space-between;
-}
-
-.nav a {
-  text-decoration: none;
-}
-
-.nav_right {
-}
-
-.user-nav {
   width: 100%;
+  text-align: center;
+  margin: 1rem 0;
 }
 
-.nav_btn {
-  margin-left: 40px;
+.header-right {
+  display: flex;
+  justify-content: space-between;
+  /* width: 100%; */
+  text-align: center;
+}
+
+.header-title {
+  text-decoration: none;
+  color: black;
 }
