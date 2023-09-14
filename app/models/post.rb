@@ -7,8 +7,8 @@ class Post < ApplicationRecord
   validate :images_are_images_not_videos
   validates :images, presence: true
   
-  def favorited_by?(user, image_id)
-    favorites.where(user_id: user.id, image_id: image_id).exists?
+  def favorited_by?(user, post, image_id)
+    favorites.where(user_id: user.id, post_id: post.id, image_id: image_id).exists?
   end
 
   def images_are_images_not_videos

@@ -7,20 +7,18 @@
   <div class="main-contents">
     <div class="main-header">
       <h3 class="title">
-        <%= current_user.name %>さんのお気に入り
+        <%= current_user.name %> Favorites
       </h3>
     </div>
     <hr>
     <div class="posts">
       <% @favorites.each do |favorite| %>
         <% if favorite.post.images.attached? %>
-          <% favorite.post.images.each do |image| %>
-            <div class="post">
-              <%= link_to show_image_room_post_path(favorite.post.room, favorite.post, index: favorite.image_id) do %>
-                <%= image_tag image.variant(resize_to_fill: [300, 300, gravity: 'center']).processed, class: 'img-thumbnail' %>
-              <% end %>
-            </div>
-          <% end %>
+          <div class="post">
+            <%= link_to show_image_room_post_path(favorite.post.room, favorite.post, index: favorite.image_id) do %>
+              <%= image_tag favorite.post.images[favorite.image_id].variant(resize_to_fill: [300, 300, gravity: 'center']).processed, class: 'img-thumbnail' %>
+            <% end %>
+          </div>
         <% end %>
       <% end %>  
     </div>

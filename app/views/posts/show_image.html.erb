@@ -10,7 +10,7 @@
         <div class="card-title">No.<%= @image.id %></div>&nbsp;
         <%# お気に入りボタン %>
         <span id="like-btn<%= @image.id %>">
-          <%= render partial: "favorites/favorite", locals: { room: @room, post: @post, index: @image_index, image_id: @image_id} %>
+          <%= render partial: "favorites/favorite", locals: { room: @room, post: @post, index: @image_index, image_id: @image_index} %>
         </span>
       </div>
       <p class="card-text">Some quick example text to build on the card title.</p>
