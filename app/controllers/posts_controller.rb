@@ -22,8 +22,8 @@ class PostsController < ApplicationController
   def show_image
     @image_index = params[:index].to_i
     @image = @post.images[@image_index]
-    blob = @image.blob
-    @image_id = blob.id
+    # blob = @image.blob
+    # @image_id = blob.id
   end
 
   def destroy
