@@ -32,9 +32,9 @@
 
   <div class="mb-3">
     <div class='form-text-wrap'>
-      <label class="form-label">写真を選択</label>
+      <label class="form-label">写真</label>
     </div>
-    <%= f.file_field :image, class:"form-control", id:'post-image' %>
+    <%= f.file_field :images, multiple: true, class:"form-control", id:'post-image' %>
   </div>
 
    <div id="previews"></div>

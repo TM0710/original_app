@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-  before_action :set_room, only: [:index, :new, :create, :show, :destroy]
-  before_action :set_post, only: [:show, :destroy]
+  before_action :set_room, only: [:index, :new, :create, :show_image, :destroy]
+  before_action :set_post, only: [:show_image, :destroy]
   before_action :authenticate_user!
   def index
     @posts = @room.posts.includes(:user).order('created_at DESC')
@@ -19,7 +19,11 @@ class PostsController < ApplicationController
     end
   end
 
-  def show
+  def show_image
+    @image_index = params[:index].to_i
+    @image = @post.images[@image_index]
+    blob = @image.blob
+    @image_id = blob.id
   end
 
   def destroy
@@ -38,6 +42,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:image).merge(user_id: current_user.id)
+    params.require(:post).permit(images: []).merge(user_id: current_user.id)
   end
 end

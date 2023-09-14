@@ -4,14 +4,13 @@
 
 <div class="show-main">
   <div class="card" style="width: 26rem;">
-    <% @post.images.each do |image| %>
-      <%= image_tag image,class: "card-img-top" %>
-    <% end %>
+    <%= image_tag @image,class: "card-img-top" %>
     <div class="card-body">
       <div class="card-header-wrap">
-        <h5 class="card-title">No.<%= @post.id %></h5>&nbsp;
-        <span id="like-btn<%= @post.id %>">
-          <%= render partial: "favorites/favorite", locals: { room: @room, post: @post } %>
+        <div class="card-title">No.<%= @image.id %></div>&nbsp;
+        <%# お気に入りボタン %>
+        <span id="like-btn<%= @image.id %>">
+          <%= render partial: "favorites/favorite", locals: { room: @room, post: @post, index: @image_index, image_id: @image_id} %>
         </span>
       </div>
       <p class="card-text">Some quick example text to build on the card title.</p>

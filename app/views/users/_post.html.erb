@@ -1,0 +1,12 @@
+
+  <% if post.images.attached? %>
+    <% post.images.each.with_index(1) do |image, index| %>
+      <div class="post">
+      <%= link_to show_image_room_post_path(post.room, post, index: index) do %>
+        <%= image_tag image.variant(resize_to_fill: [300, 300, gravity: 'center']).processed, class: 'img-thumbnail' %>
+      <% end %>
+      </div>
+    <% end %>
+  <% end %>
+    <%# <%= image_tag post.image.variant(resize_to_fill: [300, 300, gravity: 'center']).processed, class: 'img-thumbnail' if post.image.attached? %>
+  <%# <% end %>
