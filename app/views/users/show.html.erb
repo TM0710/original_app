@@ -25,13 +25,7 @@
        <hr>
     </div>
     <div class="posts">
-      <% @posts.each do |post| %>
-        <div class="post">
-          <%= link_to room_post_path(post.room, post) do %>
-            <%= image_tag post.image.variant(resize_to_fill: [300, 300, gravity: 'center']).processed, class: 'img-thumbnail' if post.image.attached? %>
-          <% end %>
-        </div>
-      <% end %>  
+      <%= render partial: 'post', collection: @posts %>
     </div>
   </div>
   <div class="footer-mobile">

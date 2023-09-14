@@ -13,11 +13,15 @@
     <hr>
     <div class="posts">
       <% @favorites.each do |favorite| %>
-        <div class="post">
-          <%= link_to room_post_path(favorite.post.room, favorite.post) do %>
-            <%= image_tag favorite.post.image.variant(resize_to_fill: [300, 300, gravity: 'center']).processed, class: 'img-thumbnail' if favorite.post.image.attached? %>
+        <% if favorite.post.images.attached? %>
+          <% favorite.post.images.each do |image| %>
+            <div class="post">
+              <%= link_to show_image_room_post_path(favorite.post.room, favorite.post, index: favorite.image_id) do %>
+                <%= image_tag image.variant(resize_to_fill: [300, 300, gravity: 'center']).processed, class: 'img-thumbnail' %>
+              <% end %>
+            </div>
           <% end %>
-        </div>
+        <% end %>
       <% end %>  
     </div>
   </div>
