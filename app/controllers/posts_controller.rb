@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-  before_action :set_room, only: [:index, :new, :create, :show_image, :destroy]
-  before_action :set_post, only: [:show_image, :destroy]
+  before_action :set_room, only: [:index, :new, :create, :show_image, :destroy, :destroy_image]
+  before_action :set_post, only: [:show_image, :destroy, :destroy_image]
   before_action :authenticate_user!
   def index
     @posts = @room.posts.includes(:user).order('created_at DESC')
@@ -26,8 +26,24 @@ class PostsController < ApplicationController
     # @image_id = blob.id
   end
 
-  def destroy
-    @post.destroy
+  # def destroy
+  #   @post.destroy
+  #   redirect_to room_posts_path(@room)
+  # end
+
+  def destroy_image
+    image_index = params[:index].to_i
+    image = @post.images[image_index]
+    if image
+      favorite = current_user.favorites.find_by(post_id: @post.id, image_id: image_index)
+      favorite.destroy if favorite
+      image.purge
+      
+      @post.images.reload
+      if @post.images.empty?
+        @post.destroy
+      end
+    end
     redirect_to room_posts_path(@room)
   end
 
