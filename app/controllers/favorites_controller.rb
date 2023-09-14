@@ -16,7 +16,8 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-    favorite = Favorite.find_by(post_id: @post.id, user_id: current_user.id, image_id: @image_id)
+    @image_index = params[:index].to_i
+    favorite = Favorite.find_by(user_id: current_user.id, post_id: params[:id], image_id: @image_index)
     favorite.destroy
     redirect_to show_image_room_post_path(@room.id, @post.id, index: params[:index])
   end
