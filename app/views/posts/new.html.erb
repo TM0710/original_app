@@ -19,7 +19,7 @@
     <div class="header-title">
       <h3><%= link_to 'OriginalApp', room_posts_path(@room), class: "root-taitle" %></h3>
     </div>
-    <%= form_with model: [@room, @post], id: 'new_post', local: true, class: 'registration-main' do |f| %>
+  <%= form_with model: [@room, @post], id: 'new_post', local: true, class: 'registration-main' do |f| %>
 
   <div class='form-wrap'>  
     <div class='form-header'>
@@ -34,7 +34,7 @@
     <div class='form-text-wrap'>
       <label class="form-label">写真</label>
     </div>
-    <%= f.file_field :images, multiple: true, class:"form-control", id:'post-image' %>
+    <%= f.file_field :images, name: 'post[images][]', multiple: true, class:"form-control" %>
   </div>
 
    <div id="previews"></div>
@@ -43,7 +43,6 @@
     <%= button_tag(type: 'submit', class: 'btn btn-primary w-100 py-2') do %>
       Post
     <% end %>
-    <%# <%= f.submit "投稿する" ,class:"login-red-btn" %>
   </div>
 </div>
 <% end %>
