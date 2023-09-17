@@ -11,6 +11,18 @@
   color: #000000;
 }
 
+.title:hover{
+  color: black;
+}
+
+.root-title:hover{
+  color: black;
+}
+
+.link-btn:hover {
+  color: #000000;
+}
+
 .side-bar {
   width: 250px;
   height: 100vh;
@@ -49,6 +61,7 @@
   height: 3rem;
   padding: 0 1rem;
   line-height: 40px;
+  border-radius: 8px;
 }
 
 .room {
