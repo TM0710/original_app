@@ -48,3 +48,7 @@ body {
   color: #fff;
   border-bottom-color: #fff;
 }
+
+.mb-auto {
+  margin: 0 auto;
+}
