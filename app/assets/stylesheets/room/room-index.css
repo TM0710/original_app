@@ -61,6 +61,15 @@
   text-overflow: ellipsis;
 }
 
+
+.search-form{
+ width: 100%;
+}
+
+.form-room_path {
+  /* display: flex; */
+}
+
 .side-space {
   background-color: rgba(0, 0, 0, .1);
   width: 0.5rem;
