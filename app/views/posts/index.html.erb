@@ -17,12 +17,23 @@
           </svg>
           <%= @room.name %>&emsp;<%= @room.wedding_day %>
         </h3>
-        <div class="room-delete-btn">
-          <% if @room.host_id == current_user.id %>
-            <%= link_to 'ルーム削除', room_path(@room), data: { turbo_method: :delete }, class: "main-header-btn" %>
-          <% else %>
-            <%= link_to 'ルーム退出', "#", data: { turbo_method: :delete }, class: "main-header-delete-btn" %>
-          <% end %>
+        <div class="delete-contents" id="delete_nav">
+          <div class="delete-lists">
+            <%# <div class="btn btn-outline-secondary" disabled> %>
+            <div class="delete-list">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+              </svg>
+            </div>
+            <%# </div> %>
+            <div class="delete-btn hidden" id="delete_btn">
+              <% if @room.host_id == current_user.id %>
+                <%= link_to 'ルーム削除', room_path(@room), data: { turbo_method: :delete, turbo_confirm: "ルーム削除してよろしいですか？"}, class: "link-btn" %>
+              <% else %>
+                <%= link_to 'ルーム退出', "#", data: { turbo_method: :delete }, class: "link-btn" %>
+              <% end %>
+            </div>
+          </div>
         </div>
       </div>
       <hr>

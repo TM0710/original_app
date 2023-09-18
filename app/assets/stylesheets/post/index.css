@@ -26,6 +26,16 @@
   justify-content:space-between;
 }
 
+.delete-list {
+  height: 25px;
+  text-align: end;
+}
+
+.delete-btn {
+  font-size: 14px;
+  height: 15px;
+}
+
 .posts {
   display: flex;
   flex-wrap: wrap;
