@@ -10,6 +10,9 @@ Rails.application.routes.draw do
         delete 'show_image/:index/favorites', to: 'favorites#destroy', as: 'remove_favorite'
       end
     end
+    member do
+      delete 'exit'
+    end
     collection do
       get 'search'
     end

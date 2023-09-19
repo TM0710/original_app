@@ -19,7 +19,9 @@
   <main class="form-signin w-100 m-auto">
 
     <div class="header-title">
-      <h3><%= link_to 'OriginalApp', root_path, class: "root-taitle" %></h3>
+      <div class="side-bar-header-upper">
+        <h3><%= link_to 'MyWedding', root_path, class: "root-taitle" %></h3>
+      </div>
     </div>
     <%= form_with model: @user, url: user_registration_path, class: 'registration-main', local: true do |f| %>
     <div class='form-wrap'>

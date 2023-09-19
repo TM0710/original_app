@@ -38,6 +38,15 @@ class RoomsController < ApplicationController
     end
   end
 
+  def exit
+    @room = Room.find(params[:id])
+    if @room.users.delete(current_user)
+      redirect_to root_path
+    else
+    redirect_to room_posts_path(@room)
+    end
+  end
+
   private
 
   def room_params
