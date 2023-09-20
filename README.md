@@ -72,7 +72,7 @@ https://original-app-tq6c.onrender.com
 - タスク管理
 
 # ローカルでの動作方法
-以下のコマンドを順位実行。
+以下のコマンドを順に実行。
 % git clone https://github.com/TM0710/original_app.git
 % cd original_app
 %bundle install
