@@ -75,8 +75,8 @@ https://original-app-tq6c.onrender.com
 以下のコマンドを順に実行。  
 % git clone https://github.com/TM0710/original_app.git  
 % cd original_app  
-%bundle install  
-%yarn install
+% bundle install  
+% yarn install
 
 # 工夫したポイント
 - 投稿のハードルを下げるために、投稿は写真のみ、匿名性にした。
