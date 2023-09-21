@@ -82,13 +82,14 @@
   text-align: center;
   justify-content: space-between;
   padding: 12px 12px 12px 32px;
-  overflow: hidden;
-  text-overflow: ellipsis;
   border-radius: 8px;
 }
 
 .room-name {
   line-height: 24px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
 }
 
 .sign-out-btn {
