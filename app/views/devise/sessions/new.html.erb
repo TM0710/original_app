@@ -25,24 +25,24 @@
   <%= form_with model: @user, url: user_session_path, class: 'registration-main' do |f| %>
   <div class='form-wrap'>
     <div class='form-header'>
-      <h4 class='h3 mb-3 fw-normal'>
+      <h1 class="form-header-text">
         Please log in
-      </h4>
+      </h1>
     </div>
     <div class='login-flash-message'>
-      <%= flash[:notice] %>
+      <%# <%= flash[:notice] %>
       <%= flash[:alert] %>
     </div>
     <div class="mb-3">
       <div class='form-text-wrap'>
-        <%= f.label :email, class: "form-label" %><br />
+        <%= f.label :email, 'メールアドレス', class: "form-label" %><br />
       </div>
       <%= f.email_field :email, class: "form-control", id:"email", placeholder:"PC・携帯どちらでも可", autofocus: true %>
     </div>
 
     <div class="mb-3">
       <div class='form-text-wrap'>
-        <%= f.label :password, class: "form-label" %><br />
+        <%= f.label :password, 'パスワード', class: "form-label" %><br />
       </div>
       <%= f.password_field :password, class: "form-control", id:"password", placeholder:"" %>
     </div>

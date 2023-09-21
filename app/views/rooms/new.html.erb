@@ -18,14 +18,17 @@
   <main class="form-signin w-100 m-auto">
   
   <%= form_with model: @room, local: true, class: 'registration-main' do |f| %>
-  <div class="side-bar-header-upper">
-    <div class="header-title">
-      <h4><%= link_to 'MyWedding', root_path, class: "root-title" %></h4>
+  <div class="form-header-link">
+    <div class="side-bar-header-upper">
+      <div class="header-title">
+        <h4><%= link_to 'MyWedding', root_path, class: "root-title" %></h4>
+      </div>
     </div>
   </div>
+
   <div class='form-wrap'>
     <div class='form-header'>
-      <h1 class='h3 mb-3 fw-normal'>
+      <h1 class="form-header-text">
         New Room
       </h1>
     </div>

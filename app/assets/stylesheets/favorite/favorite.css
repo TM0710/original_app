@@ -5,3 +5,18 @@
 .post_favorites_off svg {
   fill: red; /* 赤色に変更 */
 }
+
+.favorite-link {
+  height: 40px;
+  width: 120px;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.favorite-text {
+  margin-left: 8px;
+  font-size: 18px;
+}

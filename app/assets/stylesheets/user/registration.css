@@ -149,3 +149,16 @@
 .form-send-btn {
   margin-top: 40px;
 }
+
+.form-header-link {
+  margin-bottom: 30px;
+}
+
+.form-header-text {
+  border-bottom: 1px solid #f5f5f5;
+  font-weight: bold;
+  height: 40px;
+  font-size: 19px;
+  text-align: center;
+  color: #999999	;
+}
