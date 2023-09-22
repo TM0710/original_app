@@ -40,7 +40,9 @@ class RoomsController < ApplicationController
 
   def exit
     @room = Room.find(params[:id])
-    if @room.users.delete(current_user)
+    if @room.users.destroy(current_user)
+      favorites = Favorite.where(user_id: current_user.id).where(room_id: @room)
+      favorites.destroy_all
       redirect_to root_path
     else
     redirect_to room_posts_path(@room)
