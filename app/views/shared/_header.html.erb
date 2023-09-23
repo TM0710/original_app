@@ -2,37 +2,55 @@
   <div class="header-left">
     <div class="side-bar-header-upper">
     <%= link_to (root_path), class: "header-title" do %>
-      MyWedding
+      MW
     <% end %>
     </div>
   </div>
+
+  <div class="header-center">
+    <% if @room.present? %>
+      <div class="room-day">
+        <%= @room.wedding_day.strftime('%Y.%m.%d') %>
+      </div>
+      <div class="room-nane">
+        <%= @room.name %>
+      </div>
+    <% end %>
+  </div>
+
   <div class="header-right">
     <div class="header-category">
-      <%= link_to(new_room_path, class: 'link-btn') do %>
-        <div class="new-room">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+      <%= link_to user_favorites_path(current_user), class: "link-btn" do %>
+        <div class="favorite-mobile">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+            <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
           </svg>
         </div>
       <% end %>
     </div>
     <div class="header-category">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-      </svg>
-      <%= current_user.name %>
-      <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete }, class: "link-btn" %>
+      <div class="dropdown text-end">
+        <div class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+          </svg>
+        </div>
+        <ul class="dropdown-menu text-small">
+          <li><%= link_to 'New room...', new_room_path, class: 'dropdown-item'%></li>
+          <li><%= link_to 'Sign out', destroy_user_session_path, data: { turbo_method: :delete}, class: 'dropdown-item'%></li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
-<div class="header-middole">
-  <div class="header-category">
-    <div class="form_room">
-      <%= form_with(url: search_rooms_path, local: true, method: :get, class: "search-form") do |form| %>
-        <%= form.text_field :room_path, placeholder: "roomパスワードを入力", class: "search-input" %>
-        <%= form.submit "参加", class: "search-btn hidden" %>
-      <% end %>
-    </div>
+
+<div class="header-bottom">
+  <div class="enter-room">
+    <%= form_with(url: search_rooms_path, local: true, method: :get, class: "col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3") do |form| %>
+      <%= form.text_field :room_path, placeholder: "roomパスワードを入力", class: "form-control" %>
+      <%# <%= form.submit "参加", class: "search-btn" %>
+    <% end %>
   </div>
 </div>
+<hr>
