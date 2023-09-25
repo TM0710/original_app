@@ -4,6 +4,7 @@
 
 .footer-mobile {
   width: 100%;
+  height: 50px;
   padding: 0 1rem;
   position: sticky;
   bottom: 0;
@@ -12,4 +13,19 @@
 
 .footer {
   display: flex;
+  justify-content: space-around;
+  line-height: 50px;
+}
+
+.footer-category {
+  height: 100%;
+  width: 50px;
+}
+
+a.btn.btn-outline-dark {
+  border: none;
+}
+
+button.btn.btn-outline-dark {
+  border: none;
 }

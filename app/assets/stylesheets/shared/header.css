@@ -11,23 +11,34 @@
 }
 
 .header-upper {
-  height:30px;
+  height: 30px;
   display: flex;
-  justify-content: space-between;
   width: 100%;
   text-align: center;
   margin: 1rem 0;
 }
 
-.header-right {
+.header-left {
+  width: 30px;
+}
+
+.header-center {
   display: flex;
-  justify-content: space-between;
-  /* width: 100%; */
-  text-align: center;
+  justify-content: center;
+  width: calc(100vw - 30px - 30px);
+  padding: 0 12px;
+  font-weight: 600;
+}
+
+.header-center-content {
+  display: flex;
+}
+
+.header-right {
+  width: 30px;
 }
 
 .header-category {
-  width: 40px;
 }
 .header-title {
   text-decoration: none;
@@ -35,5 +46,5 @@
 }
 
 .header-bottom {
-  margin-top: 30px;
+  margin-top: 20px;
 }
