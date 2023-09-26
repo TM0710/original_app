@@ -3,6 +3,7 @@ class FavoritesController < ApplicationController
   before_action :set_post,  only: [:create, :destroy]
 
   def index
+    @page_title = "Favorite"
     @favorites = current_user.favorites.includes(:post).order("created_at DESC")
   end
 

@@ -2,6 +2,11 @@ class RoomsController < ApplicationController
   before_action :authenticate_user!, except: :index
 
   def index
+    if user_signed_in?
+      @name = current_user.name
+      @posts = current_user.posts.order('created_at DESC')
+    else
+    end
   end
 
   def new
