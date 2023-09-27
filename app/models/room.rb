@@ -7,6 +7,6 @@ class Room < ApplicationRecord
     validates :name
     validates :host_id
     validates :wedding_day
-    validates :room_path, uniqueness: { message: 'は既に使用されています' }
+    validates :room_key, uniqueness: { message: 'は既に使用されています' }
   end
 end

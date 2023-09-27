@@ -61,7 +61,7 @@
         <%= form_with(url: search_rooms_path, local: true, method: :get, class: "search-form") do |form| %>
         <div class="form-room_path">
           <div class="col-auto-room">
-            <%= form.text_field :room_path, placeholder: "roomパスワードを入力", class: "form-control" %>
+            <%= form.text_field :room_key, placeholder: "Room_keyを入力", class: "form-control" %>
           </div>
           <div class="d-grid gap-2">
             <%= form.submit "参加", class: "btn btn-outline-secondary" %>

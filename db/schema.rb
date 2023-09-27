@@ -71,12 +71,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_08_235458) do
 
   create_table "rooms", charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.string "room_path", null: false
+    t.string "room_key", null: false
     t.integer "host_id", null: false
     t.date "wedding_day", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["room_path"], name: "index_rooms_on_room_path", unique: true
+    t.index ["room_key"], name: "index_rooms_on_room_key", unique: true
   end
 
   create_table "users", charset: "utf8", force: :cascade do |t|

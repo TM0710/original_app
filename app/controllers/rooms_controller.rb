@@ -31,7 +31,7 @@ class RoomsController < ApplicationController
   end
 
   def search
-    @room = Room.find_by(room_path: params[:room_path])
+    @room = Room.find_by(room_key: params[:room_key])
     if @room
       if current_user.rooms.exists?(@room.id)
         redirect_to room_posts_path(@room)
@@ -58,6 +58,6 @@ class RoomsController < ApplicationController
   private
 
   def room_params
-    params.require(:room).permit(:name, :room_path, :wedding_day).merge(host_id: current_user.id)
+    params.require(:room).permit(:name, :room_key, :wedding_day).merge(host_id: current_user.id)
   end
 end

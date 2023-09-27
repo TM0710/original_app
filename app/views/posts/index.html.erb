@@ -26,7 +26,7 @@
             <div class="delete-btn hidden" id="delete_btn">
               <% if @room.host_id == current_user.id %>
                 <div class="header-list">
-                  パスワード：<%= @room.room_path %>
+                  Key：<%= @room.room_key %>
                 </div>
                 <div class="header-list">
                   <%= link_to 'ルーム削除', room_path(@room), data: { turbo_method: :delete, turbo_confirm: "ルーム削除してよろしいですか？"}, class: "link-btn-header" %>
