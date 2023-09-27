@@ -3,6 +3,7 @@ class RoomsController < ApplicationController
 
   def index
     if user_signed_in?
+      @page_title = "Home"
       @name = current_user.name
       @posts = current_user.posts.order('created_at DESC')
     else

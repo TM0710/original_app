@@ -123,6 +123,7 @@ svg.bi.bi-plus-lg {
   color: #fff;
 }
 
+
 /* スマートフォン向けのスタイル */
 @media (max-width: 768px) {
   .side-bar-header-upper {
@@ -132,7 +133,7 @@ svg.bi.bi-plus-lg {
   .main-contents {
     margin: 0;
     width: 100vw;
-    height: 100vh;
+    height: calc(100vh - 100px - 50px);
   }
 
   .main-header {
@@ -153,7 +154,4 @@ svg.bi.bi-plus-lg {
     bottom: 60px;
     right: 16px;
   }
-  /* .post img.img-thumbnail { */
-    /* max-width: 100%; 画像の最大幅を親要素に合わせる */
-  /* } */
 }

@@ -23,7 +23,7 @@
       <% @favorites.each do |favorite| %>
         <% if favorite.post.images.attached? %>
           <div class="post">
-            <%= link_to show_image_room_post_path(favorite.post.room, favorite.post, index: favorite.image_id) do %>
+            <%= link_to show_image_room_post_path(favorite.room_id, favorite.post, index: favorite.image_id) do %>
               <%= image_tag favorite.post.images[favorite.image_id].variant(resize_to_fill: [300, 300, gravity: 'center']).processed, class: 'img-thumbnail' %>
             <% end %>
           </div>
