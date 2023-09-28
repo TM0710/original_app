@@ -16,7 +16,7 @@ https://original-app-tq6c.onrender.com
 # 利用方法
 ## ルーム作成
 1. トップページでユーザー新規登録を行う
-2. サイドバーのNewボタンから、ルームの内容（日付、名前、ルームパス）を入力し作成する
+2. サイドバーのNewボタンから、ルームの内容（日付、名前、ルームキー）を入力し作成する
 ## 写真投稿
 1. サイドバーのフォームにルームパスを入力しルームに参加、または自分でルームを作成する
 2. Postボタンから、画像を入力し投稿する
@@ -37,12 +37,12 @@ https://original-app-tq6c.onrender.com
 ## 投稿一覧表示
 - ルームに参加すると投稿された画像が一覧表示される。
 
-[![Image from Gyazo](https://i.gyazo.com/5d1d33c2b06626a43dfd5924cb2c7c91.jpg)](https://gyazo.com/5d1d33c2b06626a43dfd5924cb2c7c91)
+[![Image from Gyazo](https://i.gyazo.com/ec48c2d172625362ea347b4b1780ad75.jpg)](https://gyazo.com/ec48c2d172625362ea347b4b1780ad75)
 
 ## ルーム作成機能
 - ルームの内容を入力しルームを新規作成する。
 
-[![Image from Gyazo](https://i.gyazo.com/31b0b9fe17f02c169133e31aad613194.png)](https://gyazo.com/31b0b9fe17f02c169133e31aad613194)
+[![Image from Gyazo](https://i.gyazo.com/022f87f95b437da9681dd59b9466f688.png)](https://gyazo.com/022f87f95b437da9681dd59b9466f688)
 
 ## 投稿機能
 - 投稿ボタンから画像を投稿できる。
@@ -60,7 +60,7 @@ https://original-app-tq6c.onrender.com
 今後はお気に入り登録した画像の一括ダウンロード機能を実施予定。
 
 # データベース設計
-[![Image from Gyazo](https://i.gyazo.com/1d3cf576e01465dceccf4927f5097681.png)](https://gyazo.com/1d3cf576e01465dceccf4927f5097681)
+[![Image from Gyazo](https://i.gyazo.com/946e7d113700ab469c4d35cc18620199.png)](https://gyazo.com/946e7d113700ab469c4d35cc18620199)
 
 # 画面遷移図
 [![Image from Gyazo](https://i.gyazo.com/b8ffaf1e887bb2c6e3e6ab93da240f76.png)](https://gyazo.com/b8ffaf1e887bb2c6e3e6ab93da240f76)
@@ -80,68 +80,3 @@ https://original-app-tq6c.onrender.com
 
 # 工夫したポイント
 - 投稿のハードルを下げるために、投稿は写真のみ、匿名性にした。
-<!-- # テーブル設計
-
-## users テーブル
-
-| Column             | Type   | Options     |
-| ------------------ | ------ | ----------- |
-| name               | string | null: false |
-| email              | string | null: false |
-| encrypted_password | string | null: false |
-
-### Association
-
-- has_many :posts
-- has_many :rooms, through: :user_rooms
-- has_many :favorites
-
-## rooms テーブル
-
-| Column    | Type    | Options     |
-| --------- | ------- | ----------- |
-| name      | string  | null: false |
-| room_path | string  | null: false |
-| host_id   | integer | null: false |
-
-### Association
-
-- has_many :user, through: :user_rooms
-
-## room_users テーブル
-
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| user   | references | null: false, foreign_key: true |
-| room   | references | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :room
-- belongs_to :user
-
-
-## posts テーブル
-
-| Colum      | Type       | Options                        |
-| ---------- | ---------- | ------------------------------ |
-| user       | references | null: false, foreign_key: true |
-| room       | references | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :user
-- belongs_to :room
-- has_many :favorites
-
-## favorites テーブル
-
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| post   | references | null: false, foreign_key: true |
-| user   | references | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :post
-- belongs_to :user -->
