@@ -1,6 +1,7 @@
 class FavoritesController < ApplicationController
   before_action :set_room,  only: [:create, :destroy]
   before_action :set_post,  only: [:create, :destroy]
+  include Zipline
 
   def index
     @page_title = "Favorite"
@@ -20,6 +21,17 @@ class FavoritesController < ApplicationController
     favorite = Favorite.find_by(user_id: current_user.id, post_id: params[:id], room_id: params[:room_id], image_id: @image_index)
     if favorite.destroy
       redirect_to show_image_room_post_path(@room.id, @post.id, index: params[:index])
+    end
+  end
+
+  def download_all
+    favorites = current_user.favorites
+
+    respond_to do |format|
+      format.zip do
+        files = favorites.map { |favorite| [favorite.post.images[favorite.image_id], "#{favorite.id}.jpg"] }
+        zipline(files, 'favorites.zip', auto_rename_duplicate_filenames: true)
+      end
     end
   end
 

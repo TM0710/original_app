@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     end
   end
   resources :users, only: :show do
+    get '/download_favorites.zip', to: 'favorites#download_all', as: 'download_favorites'
     resources :favorites, only: :index
   end
 end
