@@ -5,7 +5,9 @@ Rails.application.routes.draw do
     resources :posts, only: [:index, :new, :create] do
       member do
         get 'show_image/:index', to: 'posts#show_image', as: 'show_image'
+        get 'show_video/:index', to: 'posts#show_video', as: 'show_video'
         delete 'show_image/:index/image', to: 'posts#destroy_image', as: 'destroy_image'
+        delete 'show_video/:index/video', to: 'posts#destroy_video', as: 'destroy_video'
         post 'show_image/:index/favorites', to: 'favorites#create', as: 'add_favorite'
         delete 'show_image/:index/favorites', to: 'favorites#destroy', as: 'remove_favorite'
       end
