@@ -23,13 +23,43 @@
     </div>
   </div>
   
-  <div class="header-right"></div>
+  <div class="header-right">
+    <% if @room.present? %>
+      <div class="btn-group dropstart">
+        <button class="btn btn-outline-dark" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+          </svg>
+        </button>
+        <ul class="dropdown-menu">
+          <% if @room.host_id == current_user.id %>
+            <li class="dropdown-item">key：<%= @room.room_key %></li>
+            <li><%= link_to 'Room削除', room_path(@room), data: { turbo_method: :delete, turbo_confirm: "Room削除してよろしいですか？"}, class: "dropdown-item" %></li>
+          <% else %>
+            <li><%= link_to 'Room退出', exit_room_path(@room), data: { turbo_method: :delete, turbo_confirm: "退出してよろしいですか？" }, class: "dropdown-item" %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    
+    <% if @page_title == "Favorite" %>
+      <%= link_to(user_download_favorites_path(current_user), class: "link-btn") do %>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+          <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+          <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+        </svg>
+        <p class="download-text">
+          All
+        </p>
+      <% end %>
+    <% end %>
+  </div>
 </div>
 
 <div class="header-bottom">
   <div class="enter-room">
     <%= form_with(url: search_rooms_path, local: true, method: :get, class: "col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3") do |form| %>
-      <%= form.text_field :room_path, placeholder: "roomパスワードを入力", class: "form-control" %>
+      <%= form.text_field :room_key, placeholder: "Room_Keyを入力", class: "form-control" %>
       <%# <%= form.submit "参加", class: "search-btn" %>
     <% end %>
   </div>

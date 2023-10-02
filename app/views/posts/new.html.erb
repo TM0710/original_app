@@ -40,6 +40,13 @@
     <%= f.file_field :images, name: 'post[images][]', multiple: true, class:"form-control" %>
   </div>
 
+  <div class="mb-3">
+    <div class='form-text-wrap'>
+      <label class="form-label">動画</label>
+    </div>
+    <%= f.file_field :videos, name: 'post[videos][]', multiple: true, class:"form-control" %>
+  </div>
+
    <div id="previews"></div>
 
   <div class="form-send-btn">
