@@ -10,17 +10,27 @@ class FavoritesController < ApplicationController
 
   def create
     @media_index = params[:index].to_i
-    favorite = current_user.favorites.new(post_id: params[:id], room_id: params[:room_id], media_id: @media_index, media_type: params[:media_type])
+    @media_type = params[:media_type]
+    favorite = current_user.favorites.new(post_id: params[:id], room_id: params[:room_id], media_id: @media_index, media_type: @media_type)
     if favorite.save
-      redirect_to show_image_room_post_path(@room.id, @post.id, params[:index])
+      if @media_type == "image"
+        redirect_to show_image_room_post_path(@room.id, @post.id, params[:index])
+      else
+        redirect_to show_video_room_post_path(@room.id, @post.id, params[:index])
+      end
     end
   end
 
   def destroy
     @image_index = params[:index].to_i
+    @media_type = params[:media_type]
     favorite = Favorite.find_by(user_id: current_user.id, post_id: params[:id], room_id: params[:room_id], media_id: @image_index, media_type: params[:media_type])
     if favorite.destroy
-      redirect_to show_image_room_post_path(@room.id, @post.id, index: params[:index])
+      if @media_type == "image"
+        redirect_to show_image_room_post_path(@room.id, @post.id, params[:index])
+      else
+        redirect_to show_video_room_post_path(@room.id, @post.id, params[:index])
+      end
     end
   end
 
