@@ -22,13 +22,11 @@ class PostsController < ApplicationController
   end
 
   def show_image
-    @image_index = params[:index].to_i
-    @image = @post.images[@image_index]
+    @media_type = 'image'
   end
 
   def show_video
-    @video_index = params[:index].to_i
-    @video = @post.videos[@video_index]
+    @media_type = 'video'
   end
 
   def destroy_image

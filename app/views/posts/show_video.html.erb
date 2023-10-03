@@ -11,8 +11,10 @@
       <div class="card-header-wrap">
         <div class="card-header-left">
           <%# お気に入りボタン %>
-         
-          <div class="dl_like_btn">
+          <span id="like-btn<%= @video.id %>">
+            <%= render partial: "favorites/favorite", locals: { room: @room, post: @post, media_id: @video_index, media_type: @media_type} %>
+          </span>
+          <div class="dl_media_btn">
             <%= link_to rails_blob_path(@video, disposition: "attachment"), class: "link-btn" do %>
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
                 <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>

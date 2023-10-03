@@ -8,8 +8,8 @@ Rails.application.routes.draw do
         get 'show_video/:index', to: 'posts#show_video', as: 'show_video'
         delete 'show_image/:index/image', to: 'posts#destroy_image', as: 'destroy_image'
         delete 'show_video/:index/video', to: 'posts#destroy_video', as: 'destroy_video'
-        post 'show_image/:index/favorites', to: 'favorites#create', as: 'add_favorite'
-        delete 'show_image/:index/favorites', to: 'favorites#destroy', as: 'remove_favorite'
+        post 'add_favorite/:index/:media_type', to: 'favorites#create', as: 'add_favorite'
+        delete 'remove_favorite/:index/:media_type', to: 'favorites#destroy', as: 'remove_favorite'
       end
     end
     member do

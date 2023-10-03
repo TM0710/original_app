@@ -9,8 +9,8 @@ class Post < ApplicationRecord
   validate :videos_contain_only_videos
   validates :images, presence: true, unless: :was_attached?
   
-  def favorited_by?(user, post, image_id)
-    favorites.where(user_id: user.id, post_id: post.id, image_id: image_id).exists?
+  def favorited_by?(user, post, media_id, media_type)
+    favorites.where(user_id: user.id, post_id: post.id, media_id: media_id, media_type: media_type).exists?
   end
 
   def was_attached?
