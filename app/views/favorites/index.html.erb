@@ -24,12 +24,27 @@
     </div>
     <div class="posts">
       <% @favorites.each do |favorite| %>
-        <% if favorite.post.images.attached? %>
-          <div class="post">
-            <%= link_to show_image_room_post_path(favorite.room_id, favorite.post, index: favorite.image_id) do %>
-              <%= image_tag favorite.post.images[favorite.image_id].variant(resize_to_fill: [300, 300, gravity: 'center']).processed, class: 'img-thumbnail' %>
-            <% end %>
-          </div>
+        <% if favorite.post.images.attached? || favorite.post.videos.attached? %>
+          <% if favorite.media_type == "image" %>
+            <div class="post">
+              <%= link_to show_image_room_post_path(favorite.room_id, favorite.post, index: favorite.media_id) do %>
+                <%= image_tag favorite.post.images[favorite.media_id].variant(resize_to_fill: [300, 300, gravity: 'center']).processed, class: 'img-thumbnail' %>
+              <% end %>
+            </div>
+          <% else %>
+            <div class="post">
+              <%= link_to show_video_room_post_path(favorite.room_id, favorite.post, index: favorite.media_id) do %>
+                <div class="video-background">
+                  <%= video_tag rails_blob_path(favorite.post.videos[favorite.media_id], disposition: :attachment), class: 'img-thumbnail' %>
+                </div>
+                <div class="video-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="block" class="bi bi-caret-right-square-fill" viewBox="0 0 16 16">
+                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm5.5 10a.5.5 0 0 0 .832.374l4.5-4a.5.5 0 0 0 0-.748l-4.5-4A.5.5 0 0 0 5.5 4v8z"/>
+                  </svg>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
         <% end %>
       <% end %>  
     </div>
