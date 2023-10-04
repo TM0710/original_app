@@ -39,7 +39,13 @@ class FavoritesController < ApplicationController
 
     respond_to do |format|
       format.zip do
-        files = favorites.map { |favorite| [favorite.post.images[favorite.image_id], "#{favorite.id}.jpg"] }
+        files = favorites.map do |favorite| 
+          if favorite.media_type == "image"
+            [favorite.post.images[favorite.media_id], "#{favorite.id}.jpg"]
+          else
+            [favorite.post.videos[favorite.media_id], "#{favorite.id}.mp4"]
+          end
+        end
         zipline(files, 'favorites.zip', auto_rename_duplicate_filenames: true)
       end
     end

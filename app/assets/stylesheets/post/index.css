@@ -146,7 +146,7 @@ svg.bi.bi-plus-lg {
   .main-contents {
     margin: 0;
     width: 100vw;
-    height: calc(100vh - 100px - 50px);
+    height: calc(100vh - 100px - 80px);
   }
 
   .main-header {
@@ -175,7 +175,7 @@ svg.bi.bi-plus-lg {
 
   .post-btn {
     position:fixed;
-    bottom: 60px;
+    bottom: 90px;
     right: 16px;
   }
 }
