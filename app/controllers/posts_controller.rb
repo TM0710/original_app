@@ -31,7 +31,7 @@ class PostsController < ApplicationController
 
   def destroy_image
     if @image
-      favorite = current_user.favorites.find_by(post_id: @post.id, image_id: @image_index)
+      favorite = current_user.favorites.find_by(post_id: @post.id, media_id: @image_index, media_type: 'image')
       favorite.destroy if favorite
       @image.purge
       
@@ -44,12 +44,16 @@ class PostsController < ApplicationController
   end
 
   def destroy_video
+    if @video
+      favorite = current_user.favorites.find_by(post_id: @post.id, media_id: @video_index, media_type: 'video')
+      favorite.destroy if favorite
       @video.purge
       
       @post.videos.reload
       if @post.videos.empty?
         @post.destroy
       end
+    end
     redirect_to room_posts_path(@room)
   end
 
