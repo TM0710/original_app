@@ -162,3 +162,11 @@
   text-align: center;
   color: #999999	;
 }
+
+/* スマホ表示時 */
+@media (max-width: 768px) {
+  .form-wrap {
+    border: none;
+    margin: 0 20px;
+  }
+}

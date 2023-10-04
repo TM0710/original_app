@@ -52,3 +52,11 @@ body {
 .mb-auto {
   margin: 0 auto;
 }
+
+.top-header {
+  margin-top: 20px;
+}
+
+p.lead {
+  margin-bottom: 1.2rem;
+}

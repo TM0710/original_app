@@ -129,6 +129,10 @@
   border-radius: 8px;
 }
 
+.log_sign_btn {
+  margin-top: 50px;
+}
+
 /* PC表示時 */
 @media (min-width: 768px) {
   .header-mobile {
@@ -151,4 +155,11 @@
   .side-space {
     display: none;
   }
+
+  .cover-container.d-flex.w-100.h-100.p-3.mx-auto.flex-column {
+    background-color: #fff;
+    color: #000;
+  }
+
+  
 }
