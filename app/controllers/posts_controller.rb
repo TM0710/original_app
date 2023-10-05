@@ -69,12 +69,12 @@ class PostsController < ApplicationController
 
   def set_image
     @image_index = params[:index].to_i
-    @image = @post.images[@image_index]
+    @media = @post.images[@image_index]
   end
 
   def set_video
     @video_index = params[:index].to_i
-    @video = @post.videos[@video_index]
+    @media = @post.videos[@video_index]
   end
 
   def post_params

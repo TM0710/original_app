@@ -18,7 +18,7 @@
             </svg>
           </div>
           <div class="title-text">
-            <%= @room.name %>&emsp;<%= @room.wedding_day %>
+            <%= @room.name %>&emsp;<%= @room.wedding_day.strftime('%Y.%m.%d') %>
           </div>
         </div>
         <div class="delete-contents" id="delete_nav">

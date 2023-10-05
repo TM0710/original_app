@@ -96,6 +96,11 @@ line-height: 50px;
   position: relative;
 }
 
+.video-background {
+  width: 100%;
+  height: 100%;
+}
+
 .post video {
   width: 310px;
   height: 310px;
@@ -177,5 +182,10 @@ svg.bi.bi-plus-lg {
     position:fixed;
     bottom: 65px;
     right: 16px;
+  }
+
+  .video-icon {
+    bottom: 0rem;
+    left: 0.3rem;
   }
 }

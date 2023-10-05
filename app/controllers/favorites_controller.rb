@@ -1,6 +1,7 @@
 class FavoritesController < ApplicationController
-  before_action :set_room,  only: [:create, :destroy]
-  before_action :set_post,  only: [:create, :destroy]
+  before_action :set_room,   only: [:create, :destroy]
+  before_action :set_post,   only: [:create, :destroy]
+  before_action :set_media,  only: [:create, :destroy]
   include Zipline
 
   def index
@@ -9,10 +10,11 @@ class FavoritesController < ApplicationController
   end
 
   def create
-    @media_index = params[:index].to_i
-    @media_type = params[:media_type]
-    favorite = current_user.favorites.new(post_id: params[:id], room_id: params[:room_id], media_id: @media_index, media_type: @media_type)
+    favorite = current_user.favorites.build(post_id: @post.id, room_id: @room.id, media_id: @media_index, media_type: @media_type)
     if favorite.save
+      # respond_to do |format|
+      #   format.js
+      # end
       if @media_type == "image"
         redirect_to show_image_room_post_path(@room.id, @post.id, params[:index])
       else
@@ -22,10 +24,11 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-    @image_index = params[:index].to_i
-    @media_type = params[:media_type]
-    favorite = Favorite.find_by(user_id: current_user.id, post_id: params[:id], room_id: params[:room_id], media_id: @image_index, media_type: params[:media_type])
+    favorite = Favorite.find_by(user_id: current_user.id, post_id: @post.id, room_id: @room.id, media_id: @media_index, media_type: @media_type)
     if favorite.destroy
+      # respond_to do |format|
+      #   format.js
+      # end
       if @media_type == "image"
         redirect_to show_image_room_post_path(@room.id, @post.id, params[:index])
       else
@@ -33,6 +36,7 @@ class FavoritesController < ApplicationController
       end
     end
   end
+
 
   def download_all
     favorites = current_user.favorites
@@ -59,5 +63,15 @@ class FavoritesController < ApplicationController
 
   def set_post
     @post = @room.posts.find(params[:id])
+  end
+
+  def set_media
+    @media_index = params[:index].to_i
+    @media_type = params[:media_type]
+    if @media_type == 'image'
+      @media = @post.images[@media_index]
+    else
+      @media = @post.videos[@media_index]
+    end
   end
 end

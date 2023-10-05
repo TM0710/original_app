@@ -1,0 +1,1 @@
+document.getElementById('like-btn<%= @media.id %>').innerHTML = "<%= j(render partial: 'favorites/favorite', locals: {room: @room, post: @post, media_id: @media_index, media_type: @media_type}) %>"
