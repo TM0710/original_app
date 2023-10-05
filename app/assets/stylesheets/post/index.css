@@ -58,7 +58,6 @@ line-height: 50px;
   position: absolute;
   top: 0;
   right: 0;
-  /* text-align: end; */
 }
 
 .delete-btn {
@@ -152,6 +151,7 @@ svg.bi.bi-plus-lg {
     margin: 0;
     width: 100vw;
     height: calc(100vh - 100px - 80px);
+    padding: 0;
   }
 
   .main-header {
@@ -159,17 +159,17 @@ svg.bi.bi-plus-lg {
   }
 
   .posts {
-    width: 342px;
+    width: 100vw;
   }
 
   .post {
-    width: 114px;
-    height: 114px;
+    width: calc(100vw / 3);
+    height: calc(100vw / 3);
   }
 
   .post video {
-    width: 114px;
-    height: 114px;
+    width: calc(100vw / 3);
+    height: calc(100vw / 3);
     object-fit: cover;
   }
   
