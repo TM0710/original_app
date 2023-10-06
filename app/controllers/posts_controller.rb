@@ -30,10 +30,10 @@ class PostsController < ApplicationController
   end
 
   def destroy_image
-    if @image
+    if @media
       favorite = current_user.favorites.find_by(post_id: @post.id, media_id: @image_index, media_type: 'image')
       favorite.destroy if favorite
-      @image.purge
+      @media.purge
       
       @post.images.reload
       if @post.images.empty?
@@ -44,10 +44,10 @@ class PostsController < ApplicationController
   end
 
   def destroy_video
-    if @video
+    if @media
       favorite = current_user.favorites.find_by(post_id: @post.id, media_id: @video_index, media_type: 'video')
       favorite.destroy if favorite
-      @video.purge
+      @media.purge
       
       @post.videos.reload
       if @post.videos.empty?
