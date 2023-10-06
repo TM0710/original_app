@@ -36,7 +36,7 @@ class PostsController < ApplicationController
       @media.purge
       
       @post.images.reload
-      if @post.images.empty?
+      if @post.images.empty? && @post.videos.empty?
         @post.destroy
       end
     end
@@ -50,7 +50,7 @@ class PostsController < ApplicationController
       @media.purge
       
       @post.videos.reload
-      if @post.videos.empty?
+      if @post.videos.empty? && @post.images.empty?
         @post.destroy
       end
     end
