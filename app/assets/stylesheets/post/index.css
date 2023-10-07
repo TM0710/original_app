@@ -7,7 +7,7 @@
   height: 100vh;
   padding: 0 1rem;
   margin: 0 auto;
-  /* overflow: scroll; */
+  overflow: scroll;
 }
 
 .main-header {
@@ -143,10 +143,6 @@ svg.bi.bi-plus-lg {
 
 /* スマートフォン向けのスタイル */
 @media (max-width: 768px) {
-  .wrapper-main {
-    height: 100vh;
-    overflow: scroll;
-  }
   .side-bar-header-upper {
     height: 100%;
   }
@@ -154,8 +150,8 @@ svg.bi.bi-plus-lg {
   .main-contents {
     margin: 0;
     width: 100vw;
+    height: calc(100vh - 100px - 80px);
     padding: 0;
-    overflow: none;
   }
 
   .main-header {
