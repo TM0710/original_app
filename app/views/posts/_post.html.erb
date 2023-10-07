@@ -14,7 +14,7 @@
         <%= link_to show_video_room_post_path(@room, post, index: index) do %>
           <div class="video-background">
             <% if video.representable? %>
-              <%= image_tag video.representation(resize_to_fill: [300, 300, gravity: 'center']).processed, class: 'img-thumbnail' %>
+              <%= image_tag video.representation(resize_to_fill: [300, 300, gravity: 'center']).processed, format: :jpg, class: 'img-thumbnail' %>
               <%# <%= video_tag rails_blob_path(video, disposition: :attachment), class: 'img-thumbnail' %>
             <% end %>
           </div>
