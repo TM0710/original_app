@@ -9,7 +9,7 @@
 
     <div class="show-main">
       <div class="card" style="width: 26rem;">
-        <%= video_tag rails_blob_path(@media, disposition: :attachment), controls: true, class: "card-img-top" %>
+        <%= video_tag rails_blob_path(@media, disposition: :attachment), playsinline: true, autoplay: true, muted: true, controls: true, class: "card-img-top" %>
         <div class="card-body">
           <div class="card-header-wrap">
             <div class="card-header-left">
