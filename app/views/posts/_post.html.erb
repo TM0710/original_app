@@ -13,8 +13,10 @@
       <div class="post">
         <%= link_to show_video_room_post_path(@room, post, index: index) do %>
           <div class="video-background">
-            <%# <%= image_tag video.preview(resize_to_fill: [300, 300, gravity: 'center']).processed, class: 'img-thumbnail' %> 
-            <%= video_tag rails_blob_path(video, disposition: :attachment), class: 'img-thumbnail' %>
+            <% if video.representable? %>
+              <%= image_tag video.representation(resize_to_fill: [300, 300, gravity: 'center']).processed, class: 'img-thumbnail' %>
+              <%# <%= video_tag rails_blob_path(video, disposition: :attachment), class: 'img-thumbnail' %>
+            <% end %>
           </div>
           <div class="video-icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="block" class="bi bi-caret-right-square-fill" viewBox="0 0 16 16">
