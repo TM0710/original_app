@@ -35,7 +35,10 @@
             <div class="post">
               <%= link_to show_video_room_post_path(favorite.room_id, favorite.post, index: favorite.media_id) do %>
                 <div class="video-background">
-                  <%= video_tag rails_blob_path(favorite.post.videos[favorite.media_id], disposition: :attachment), class: 'img-thumbnail' %>
+                  <% if favorite.post.videos[favorite.media_id].representable? %>
+                    <%= image_tag favorite.post.videos[favorite.media_id].representation(resize_to_fill: [300, 300, gravity: 'center']).processed, class: 'img-thumbnail' %>
+                    <%# <%= video_tag rails_blob_path(favorite.post.videos[favorite.media_id], disposition: :attachment), class: 'img-thumbnail' %>
+                  <% end %>
                 </div>
                 <div class="video-icon">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="block" class="bi bi-caret-right-square-fill" viewBox="0 0 16 16">
