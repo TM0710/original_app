@@ -15,7 +15,7 @@
           <div class="video-background">
             <% if video.representable? %>
              
-             <img <%= image_tag video.representation(resize_to_fill: [300, 300, gravity: 'center']).processed, class: 'img-thumbnail' %>img>
+             <%= image_tag video.representation(resize_to_fill: [300, 300, gravity: 'center']).processed, class: 'img-thumbnail' %>
               <%# <%= video_tag rails_blob_path(video, disposition: :attachment), class: 'img-thumbnail' %>
             <% end %>
           </div>
