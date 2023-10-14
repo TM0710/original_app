@@ -33,21 +33,22 @@
   
   <%= render 'shared/error_messages', model: f.object %>
 
-  <div class="mb-3">
-    <div class='form-text-wrap'>
-      <label class="form-label">写真</label>
+    <div class="mb-3">
+      <div class='form-text-wrap'>
+        <label class="form-label"><span class="form-label-post">写真</span></label>
+      </div>
+      <i class="fas fa-camera"></i>
+      <%= f.file_field :images, name: 'post[images][]', multiple: true, class:"form-control" %>
     </div>
-    <%= f.file_field :images, name: 'post[images][]', multiple: true, class:"form-control" %>
-  </div>
 
-  <div class="mb-3">
-    <div class='form-text-wrap'>
-      <label class="form-label">動画</label>
+    <div class="mb-3">
+      <div class='form-text-wrap'>
+        <label class="form-label"><span class="form-label-post">動画</span></label>
+      </div>
+      <%= f.file_field :videos, name: 'post[videos][]', multiple: true, class:"form-control" %>
     </div>
-    <%= f.file_field :videos, name: 'post[videos][]', multiple: true, class:"form-control" %>
-  </div>
 
-   <div id="previews"></div>
+   <%# <div id="previews"></div> %>
 
   <div class="form-send-btn">
     <%= button_tag(type: 'submit', class: 'btn btn-primary w-100 py-2') do %>

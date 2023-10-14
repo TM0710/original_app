@@ -5,6 +5,6 @@
 // = require bootstrap-sprockets
 import "@hotwired/turbo-rails"
 import "controllers"
-import "preview"
+// import "preview"
 import "side_category"
 import "pulldown"
