@@ -12,6 +12,7 @@ https://original-app-tq6c.onrender.com
 - Basic認証ID：2222
 - メールアドレス：test@test.com
 - パスワード：12345a
+- Room_Key：test2
 
 # 利用方法
 ## ルーム作成
@@ -43,6 +44,9 @@ https://original-app-tq6c.onrender.com
 - ルームの内容を入力しルームを新規作成する。
 
 [![Image from Gyazo](https://i.gyazo.com/022f87f95b437da9681dd59b9466f688.png)](https://gyazo.com/022f87f95b437da9681dd59b9466f688)
+
+## ルーム参加機能
+- Room＿Keyを入力しルームに参加できる。
 
 ## 投稿機能
 - 投稿ボタンから画像を投稿できる。
