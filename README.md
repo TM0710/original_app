@@ -5,11 +5,9 @@ MyWedding
 写真を共有し、気に入った写真をダウンロードできる
 
 # URL
-https://original-app-tq6c.onrender.com
+http://35.72.63.49/
 
 # テスト用アカウント
-- Basic認証パスワード：admin
-- Basic認証ID：2222
 - メールアドレス：test@test.com
 - パスワード：12345a
 - Room_Key：test2
